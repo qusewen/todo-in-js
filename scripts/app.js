@@ -5,11 +5,15 @@ const textFild = document.querySelector(".add__text");
 
 let fildValue = "";
 let testArray = [];
+let removeArray =[];
+let newArray = [];
 let flag = 0;
 
 window.onload = loades();
 
 function loades() {
+
+
   if (localStorage.getItem("todo")) {
     //есть ли у нас в локалсторадже что нибудь
     let localTodo = localStorage.getItem("todo").split(",");
@@ -49,9 +53,6 @@ const handleAdd = () => {
 
 
 
-
-
-
 };
 
 addBtn.addEventListener("click", handleAdd);
@@ -60,7 +61,7 @@ addBtn.addEventListener("click", handleAdd);
 
 const removeBtn = document.querySelectorAll(".remove");
 const card = document.querySelectorAll('.card')
-
+const removestList = document.querySelector('.removes')
 
 
         removeBtn.forEach(el => {
@@ -69,12 +70,24 @@ const card = document.querySelectorAll('.card')
                 if(!el){
                     return;
                 }else{
-                    el.parentElement.remove()
+                    el.parentElement.remove();
+                    removestList.append(el.parentElement)
+                    console.log(el.parentElement.innerHTML)
+                    removeArray.push(el.parentElement.innerHTML)
+                    localStorage.setItem('remove', removeArray)
+                    let rem = localStorage.getItem('remove').split(',');
+                    let todos = localStorage.getItem('todo').split(',')
+                   let test = rem.filter((item)=>{
+
+
+                    console.log(newArray)
                 }
+
 
         
             })
-      
          })
+
+
 
 

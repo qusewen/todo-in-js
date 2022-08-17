@@ -74,3 +74,6 @@
     color: red;
     font-weight: bold;
   }
+  .removes{
+    display: none;
+  }
